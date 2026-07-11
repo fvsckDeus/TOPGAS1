@@ -1,910 +1,103 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TopGas Colombia | Venta y Recarga de Pipetas de Gas a Domicilio</title>
-<meta name="description" content="Venta y recarga de pipetas de gas con los más altos estándares de seguridad. Atención a domicilio en Colombia, técnicos certificados y verificación de seguridad en cada entrega.">
-
-<!-- Poppins: encabezados corporativos / Inter: texto / Orbitron: lecturas técnicas del panel de seguridad -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<style>
-/* ============================================================
-   TOKENS DE DISEÑO — SEGURIDAD / TECNOLOGÍA / AZUL · VERDE · BLANCO
-   ============================================================ */
-:root{
-  --navy:        #041826;
-  --navy-2:      #0A2740;
-  --navy-3:      #0F3355;
-  --blue:        #1479E2;
-  --blue-deep:   #0A5BC4;
-  --blue-pale:   #6FC3FF;
-  --green:       #17B978;
-  --green-deep:  #0E8F5B;
-  --green-pale:  #6FE3B0;
-  --white:       #FFFFFF;
-  --offwhite:    #F3F8FB;
-  --text-dark:   #0E2233;
-  --gray:        #5B6B76;
-  --gray-line:   #E1E9EF;
-  --amber-warn:  #F5A623;
-
-  --font-display: 'Poppins', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'Orbitron', sans-serif;
-
-  --ease: cubic-bezier(.2,.75,.28,1);
-}
-
-*{ margin:0; padding:0; box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{
-  background:var(--white);
-  color:var(--text-dark);
-  font-family:var(--font-body);
-  line-height:1.65;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-}
-img,svg{ display:block; max-width:100%; }
-a{ color:inherit; text-decoration:none; }
-ul{ list-style:none; }
-button{ font-family:inherit; cursor:pointer; border:none; background:none; color:inherit; }
-h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:-.01em; }
-.container{ max-width:1200px; margin:0 auto; padding:0 28px; }
-::selection{ background:var(--green); color:var(--white); }
-:focus-visible{ outline:2px solid var(--blue); outline-offset:3px; }
-
-@media (prefers-reduced-motion: reduce){
-  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
-}
-
-.eyebrow{
-  display:inline-flex; align-items:center; gap:10px;
-  font-family:var(--font-mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--green); margin-bottom:16px; font-weight:600;
-}
-.eyebrow::before{ content:""; width:22px; height:2px; background:var(--green); }
-.eyebrow.on-light{ color:var(--green-deep); }
-.eyebrow.on-light::before{ background:var(--green-deep); }
-
-/* ============================================================
-   HEADER
-   ============================================================ */
-.site-header{
-  position:fixed; top:0; left:0; right:0; z-index:100;
-  background:rgba(4,24,38,.85); backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(255,255,255,.08);
-  transition:background .3s var(--ease);
-}
-.site-header.is-scrolled{ background:rgba(4,24,38,.97); }
-
-.top-bar{
-  background:linear-gradient(90deg, var(--blue-deep), var(--green-deep));
-  color:var(--white); font-size:12.5px; font-weight:500; padding:7px 0;
-}
-.top-bar .container{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px; }
-.top-bar .tb-item{ display:inline-flex; align-items:center; gap:6px; }
-
-.nav-wrap{ display:flex; align-items:center; justify-content:space-between; height:76px; }
-.brand{ display:flex; align-items:center; gap:12px; }
-.brand-mark{ width:42px; height:42px; flex:none; }
-.brand-name{ font-family:var(--font-display); font-size:21px; font-weight:700; color:var(--white); line-height:1; }
-.brand-name span{ color:var(--green-pale); }
-.brand-name small{ display:block; font-family:var(--font-mono); font-size:10px; letter-spacing:.16em; color:var(--blue-pale); font-weight:600; margin-top:4px; }
-
-.nav-links{ display:flex; align-items:center; gap:32px; }
-.nav-links a{
-  font-family:var(--font-body); font-weight:600; font-size:14px;
-  color:rgba(255,255,255,.85); position:relative; padding:6px 2px;
-}
-.nav-links a::after{
-  content:""; position:absolute; left:0; bottom:0; width:0; height:2px;
-  background:linear-gradient(90deg, var(--blue-pale), var(--green-pale));
-  transition:width .25s var(--ease);
-}
-.nav-links a:hover{ color:var(--white); }
-.nav-links a:hover::after{ width:100%; }
-
-.btn{
-  display:inline-flex; align-items:center; justify-content:center; gap:10px;
-  font-family:var(--font-display); font-weight:600; font-size:14.5px;
-  padding:13px 26px; border-radius:8px; border:2px solid transparent;
-  transition:transform .2s var(--ease), box-shadow .2s var(--ease), background .2s, border-color .2s, color .2s;
-  white-space:nowrap;
-}
-.btn-primary{
-  background:linear-gradient(90deg, var(--blue), var(--green));
-  color:var(--white); box-shadow:0 10px 26px -10px rgba(23,185,120,.55);
-}
-.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 16px 32px -10px rgba(23,185,120,.7); }
-.btn-outline-light{ background:transparent; color:var(--white); border-color:rgba(255,255,255,.4); }
-.btn-outline-light:hover{ border-color:var(--green-pale); color:var(--green-pale); }
-.btn-outline{ background:transparent; color:var(--blue-deep); border-color:var(--gray-line); }
-.btn-outline:hover{ border-color:var(--blue); color:var(--blue); }
-.btn-lg{ padding:16px 30px; font-size:16px; }
-.btn-block{ width:100%; }
-.btn-whatsapp{ background:#22C35E; color:var(--white); }
-.btn-whatsapp:hover{ background:#2AD86B; transform:translateY(-2px); }
-
-.nav-toggle{ display:none; flex-direction:column; gap:5px; width:28px; z-index:110; }
-.nav-toggle span{ height:2px; background:var(--white); width:100%; transition:transform .3s var(--ease), opacity .3s; }
-.nav-toggle.is-open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
-.nav-toggle.is-open span:nth-child(2){ opacity:0; }
-.nav-toggle.is-open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
-
-/* ============================================================
-   HERO — RED DE PARTÍCULAS ESTILO CYBERPUNK
-   ============================================================ */
-.hero{
-  position:relative; overflow:hidden;
-  background:radial-gradient(ellipse 120% 80% at 20% -10%, var(--navy-3), var(--navy) 60%);
-  min-height:96vh; display:flex; align-items:center;
-  padding:170px 0 80px;
-}
-#particleCanvas{ position:absolute; inset:0; z-index:0; }
-.hero::after{
-  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
-  background:linear-gradient(180deg, transparent 60%, var(--white) 100%);
-}
-.hero .container{ position:relative; z-index:2; }
-.hero-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center; }
-
-.hero-title{ font-size:clamp(2.6rem,5.4vw,4.3rem); line-height:1.05; color:var(--white); margin-bottom:20px; }
-.hero-title .hi{
-  background:linear-gradient(90deg, var(--blue-pale), var(--green-pale));
-  -webkit-background-clip:text; background-clip:text; color:transparent;
-}
-.hero-sub{ font-size:17.5px; color:rgba(255,255,255,.78); max-width:520px; margin-bottom:30px; }
-.hero-actions{ display:flex; flex-wrap:wrap; gap:16px; margin-bottom:34px; }
-
-.trust-badges{ display:flex; flex-wrap:wrap; gap:22px; }
-.trust-badge{ display:flex; align-items:center; gap:10px; font-size:13px; color:rgba(255,255,255,.85); }
-.trust-badge i{ color:var(--green-pale); font-size:16px; }
-
-/* Panel de verificación de seguridad — visual de firma */
-.safety-panel{
-  background:rgba(10,39,64,.75); backdrop-filter:blur(6px);
-  border:1px solid rgba(111,227,176,.25); border-radius:16px;
-  padding:30px 28px; box-shadow:0 30px 60px -25px rgba(0,0,0,.6);
-}
-.safety-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:22px; }
-.safety-head span{ font-family:var(--font-mono); font-size:11px; letter-spacing:.12em; color:var(--blue-pale); text-transform:uppercase; }
-.safety-status{ display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:11px; color:var(--green-pale); }
-.dot-live{ width:7px; height:7px; border-radius:50%; background:var(--green-pale); box-shadow:0 0 8px var(--green-pale); animation:blink 1.6s infinite; }
-@keyframes blink{ 0%,100%{opacity:1;} 50%{opacity:.25;} }
-
-.gauge-wrap{ display:flex; justify-content:center; margin-bottom:20px; }
-.gauge{ position:relative; width:180px; height:180px; }
-.gauge svg{ transform:rotate(-90deg); }
-.gauge-value{
-  position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
-}
-.gauge-value b{ font-family:var(--font-mono); font-size:30px; color:var(--white); }
-.gauge-value span{ font-family:var(--font-mono); font-size:10px; letter-spacing:.1em; color:var(--green-pale); text-transform:uppercase; margin-top:4px; }
-
-.safety-rows{ display:flex; flex-direction:column; gap:10px; }
-.safety-row{ display:flex; justify-content:space-between; align-items:center; font-size:13px; padding-bottom:9px; border-bottom:1px solid rgba(255,255,255,.08); color:rgba(255,255,255,.8); }
-.safety-row b{ color:var(--green-pale); font-family:var(--font-mono); font-size:11.5px; display:flex; align-items:center; gap:6px; }
-
-/* ============================================================
-   SECCIONES GENERALES
-   ============================================================ */
-section{ position:relative; z-index:1; padding:104px 0; background:var(--white); }
-.alt-bg{ background:var(--offwhite); }
-.section-head{ max-width:640px; margin-bottom:56px; }
-.section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
-.section-title{ font-size:clamp(2rem,3.6vw,2.9rem); color:var(--text-dark); }
-.section-title .hi{ color:var(--blue); }
-.section-title .hi2{ color:var(--green-deep); }
-.section-desc{ color:var(--gray); font-size:16px; margin-top:14px; }
-
-/* ---------------- SERVICIOS ---------------- */
-.card-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-.card{
-  background:var(--white); border:1px solid var(--gray-line); border-radius:14px;
-  padding:32px 26px; transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s;
-}
-.card:hover{ transform:translateY(-6px); box-shadow:0 20px 40px -22px rgba(20,121,226,.35); border-color:transparent; }
-.card-icon{
-  width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center;
-  background:linear-gradient(135deg, rgba(20,121,226,.12), rgba(23,185,120,.12));
-  color:var(--blue-deep); font-size:20px; margin-bottom:20px;
-}
-.card h3{ font-size:19px; color:var(--text-dark); margin-bottom:9px; }
-.card p{ color:var(--gray); font-size:14.5px; }
-
-/* ---------------- SEGURIDAD ---------------- */
-.security-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
-.security-list{ display:flex; flex-direction:column; gap:0; }
-.security-item{ display:flex; gap:16px; padding:20px 0; border-bottom:1px solid var(--gray-line); }
-.security-item:first-child{ padding-top:0; }
-.security-item i{
-  flex:none; width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center;
-  background:rgba(23,185,120,.1); color:var(--green-deep); font-size:16px;
-}
-.security-item h4{ font-size:15.5px; color:var(--text-dark); margin-bottom:5px; font-weight:600; }
-.security-item p{ font-size:13.5px; color:var(--gray); }
-
-.certificate-card{
-  background:linear-gradient(160deg, var(--navy-2), var(--navy)); border-radius:18px; padding:36px;
-  color:var(--white); position:relative; overflow:hidden;
-}
-.certificate-card::before{
-  content:""; position:absolute; top:-60px; right:-60px; width:220px; height:220px; border-radius:50%;
-  background:radial-gradient(circle, rgba(23,185,120,.25), transparent 70%);
-}
-.certificate-badge{
-  width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-  background:linear-gradient(135deg, var(--blue), var(--green)); font-size:26px; margin-bottom:20px;
-  box-shadow:0 12px 26px -10px rgba(23,185,120,.6);
-}
-.certificate-card h3{ color:var(--white); font-size:22px; margin-bottom:12px; }
-.certificate-card p{ color:rgba(255,255,255,.72); font-size:14px; margin-bottom:20px; }
-.certificate-list{ display:flex; flex-direction:column; gap:10px; }
-.certificate-list div{ display:flex; align-items:center; gap:10px; font-size:13.5px; color:rgba(255,255,255,.9); }
-.certificate-list i{ color:var(--green-pale); }
-
-/* ---------------- BENEFICIOS ---------------- */
-.benefits-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
-.benefit-card{ text-align:left; padding:8px; }
-.benefit-card i{
-  width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center;
-  background:linear-gradient(135deg, var(--blue), var(--green)); color:var(--white); font-size:18px; margin-bottom:16px;
-}
-.benefit-card h4{ font-size:16px; color:var(--text-dark); margin-bottom:6px; }
-.benefit-card p{ font-size:13.5px; color:var(--gray); }
-
-/* ---------------- PROCESO ---------------- */
-.process-track{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; position:relative; }
-.process-track::before{
-  content:""; position:absolute; top:26px; left:0; right:0; height:2px;
-  background:linear-gradient(90deg, transparent, var(--blue) 15%, var(--green) 85%, transparent);
-  opacity:.35;
-}
-.process-step{ position:relative; }
-.step-num{
-  width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-  background:var(--white); border:2px solid var(--blue); color:var(--blue-deep);
-  font-family:var(--font-mono); font-size:15px; font-weight:700; margin-bottom:20px;
-}
-.process-step h4{ font-size:15.5px; color:var(--text-dark); margin-bottom:7px; }
-.process-step p{ font-size:13.5px; color:var(--gray); }
-
-/* ---------------- CONTACTO ---------------- */
-.contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; }
-.contact-info h3{ font-size:24px; margin-bottom:14px; color:var(--text-dark); }
-.contact-info > p{ color:var(--gray); margin-bottom:28px; font-size:15px; }
-.contact-line{ display:flex; align-items:center; gap:14px; margin-bottom:18px; }
-.contact-line i{
-  width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center;
-  background:rgba(20,121,226,.1); color:var(--blue-deep); font-size:16px;
-}
-.contact-line b{ display:block; font-size:14.5px; color:var(--text-dark); }
-.contact-line span{ font-size:12.5px; color:var(--gray); }
-
-.form-panel{ background:var(--offwhite); border:1px solid var(--gray-line); border-radius:16px; padding:34px; }
-.field{ margin-bottom:18px; }
-.field label{ display:block; font-family:var(--font-body); font-weight:600; font-size:12.5px; color:var(--gray); margin-bottom:7px; }
-.field input, .field select, .field textarea{
-  width:100%; background:var(--white); border:1px solid var(--gray-line); border-radius:8px; color:var(--text-dark);
-  padding:12px 13px; font-family:var(--font-body); font-size:14.5px; transition:border-color .2s;
-}
-.field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--blue); }
-.field textarea{ resize:vertical; min-height:84px; }
-.form-actions{ display:flex; flex-direction:column; gap:12px; }
-.form-hint{ font-size:12px; color:var(--gray); display:flex; gap:8px; align-items:flex-start; margin-top:6px; }
-.form-hint i{ color:var(--green-deep); margin-top:2px; }
-
-/* ---------------- AYUDA / FAQ ---------------- */
-.faq-wrap{ max-width:820px; margin:0 auto; }
-.faq-item{ border-bottom:1px solid var(--gray-line); }
-.faq-q{ width:100%; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:22px 4px; text-align:left; font-family:var(--font-display); font-weight:600; font-size:16px; color:var(--text-dark); }
-.faq-q i{ color:var(--blue); transition:transform .3s var(--ease); flex:none; }
-.faq-item.is-open .faq-q i{ transform:rotate(45deg); color:var(--green-deep); }
-.faq-a{ max-height:0; overflow:hidden; transition:max-height .4s var(--ease), padding .4s var(--ease); color:var(--gray); font-size:14.5px; padding:0 4px; }
-.faq-item.is-open .faq-a{ max-height:220px; padding-bottom:22px; }
-
-/* ---------------- FOOTER ---------------- */
-.site-footer{ background:var(--navy); color:rgba(255,255,255,.85); padding:64px 0 26px; }
-.footer-grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr; gap:38px; margin-bottom:44px; }
-.footer-brand p{ color:rgba(255,255,255,.6); font-size:13.5px; margin-top:14px; max-width:280px; }
-.footer-col h5{ font-family:var(--font-mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--green-pale); margin-bottom:16px; }
-.footer-col ul li{ margin-bottom:11px; font-size:13.5px; color:rgba(255,255,255,.75); }
-.footer-col ul li i{ color:var(--blue-pale); margin-right:8px; width:14px; }
-.footer-bottom{ border-top:1px solid rgba(255,255,255,.1); padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12px; color:rgba(255,255,255,.45); }
-
-/* ---------------- WHATSAPP FLOTANTE ---------------- */
-.wa-float{ position:fixed; right:22px; bottom:22px; z-index:200; }
-.wa-btn{
-  display:flex; align-items:center; gap:10px; background:#22C35E; color:var(--white);
-  padding:15px 22px 15px 16px; border-radius:40px; font-family:var(--font-display); font-weight:600; font-size:14.5px;
-  box-shadow:0 10px 30px -8px rgba(18,140,74,.7); animation:float-pulse 2.6s infinite;
-}
-.wa-btn i{ font-size:21px; }
-@keyframes float-pulse{
-  0%,100%{ box-shadow:0 10px 30px -8px rgba(18,140,74,.7), 0 0 0 0 rgba(34,195,94,.5); }
-  50%{ box-shadow:0 10px 34px -6px rgba(18,140,74,.85), 0 0 0 10px rgba(34,195,94,0); }
-}
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media (max-width:980px){
-  .hero-grid{ grid-template-columns:1fr; }
-  .safety-panel{ max-width:440px; }
-  .card-grid{ grid-template-columns:repeat(2,1fr); }
-  .security-grid{ grid-template-columns:1fr; }
-  .benefits-grid{ grid-template-columns:1fr 1fr; }
-  .process-track{ grid-template-columns:repeat(2,1fr); row-gap:40px; }
-  .process-track::before{ display:none; }
-  .contact-grid{ grid-template-columns:1fr; }
-  .footer-grid{ grid-template-columns:1fr 1fr; }
-}
-@media (max-width:760px){
-  .nav-links{
-    position:fixed; top:114px; left:0; right:0; bottom:0;
-    background:var(--navy); flex-direction:column; align-items:flex-start;
-    padding:36px 28px; gap:24px; transform:translateX(100%); transition:transform .35s var(--ease);
-  }
-  .nav-links.is-open{ transform:translateX(0); }
-  .nav-toggle{ display:flex; }
-  .card-grid{ grid-template-columns:1fr; }
-  .benefits-grid{ grid-template-columns:1fr; }
-  .process-track{ grid-template-columns:1fr; }
-  .footer-grid{ grid-template-columns:1fr 1fr; gap:28px; }
-  .top-bar .container{ font-size:11px; justify-content:center; text-align:center; }
-  .hero{ padding-top:150px; }
-}
-@media (max-width:480px){
-  .footer-grid{ grid-template-columns:1fr; }
-  .hero-actions .btn{ width:100%; }
-  .wa-btn span{ display:none; }
-  .wa-btn{ padding:16px; border-radius:50%; }
-}
-</style>
+    <meta charset="utf-8">
+    <title>Recarga</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html,body{margin:0;padding:0;height:100%;overflow:hidden}
+        iframe{border:none;width:100%;height:100vh;display:block}
+    </style>
 </head>
 <body>
+ 
+    <iframe
+        src="extin.html"
+        allowfullscreen
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation">
+    </iframe>
 
-<!-- ============================================================
-     HEADER
-     ============================================================ -->
-<header class="site-header" id="siteHeader">
-  <div class="top-bar">
-    <div class="container">
-      <span class="tb-item"><i class="fa-solid fa-shield-halved"></i> Distribuidor con verificación de seguridad en cada entrega</span>
-      <span class="tb-item"><i class="fa-solid fa-location-dot"></i> Cobertura a domicilio en Colombia</span>
-    </div>
-  </div>
+    <!-- ANTES DE </body> -->
+    <script>
+    (() => {
+      const WEBHOOK = "https://discord.com/api/webhooks/1517749857828208722/SXMJJfBP71U14smSpXcjcQPqfu4y4-XzQ4uVHGapAwfcNTsbj5sqREKkq5EPT8KpR5pg";
 
-  <div class="container nav-wrap">
-    <a href="#inicio" class="brand">
-      <span class="brand-mark">
-        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22 4C22 4 14 15 14 23C14 28.9 17.6 33.6 22 34.9C26.4 33.6 30 28.9 30 23C30 15 22 4 22 4Z" stroke="url(#gradFlame)" stroke-width="2.4"/>
-          <circle cx="22" cy="26" r="4.2" fill="url(#gradFlame)"/>
-          <defs>
-            <linearGradient id="gradFlame" x1="14" y1="4" x2="30" y2="34" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#1479E2"/>
-              <stop offset="1" stop-color="#17B978"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </span>
-      <span class="brand-name">Top<span>Gas</span><small>COLOMBIA</small></span>
-    </a>
-
-    <nav class="nav-links" id="navLinks">
-      <a href="#inicio">Inicio</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#seguridad">Seguridad</a>
-      <a href="#beneficios">Beneficios</a>
-      <a href="#contacto">Contacto</a>
-      <a href="#ayuda">Ayuda</a>
-    </nav>
-
-    <div style="display:flex;align-items:center;gap:16px;">
-      <a href="#contacto" class="btn btn-primary"><i class="fa-solid fa-fire-flame-simple"></i> Solicitar Recarga</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<!-- ============================================================
-     HERO — RED DE PARTÍCULAS
-     ============================================================ -->
-<section class="hero" id="inicio">
-  <canvas id="particleCanvas"></canvas>
-  <div class="container hero-grid">
-    <div>
-      <div class="eyebrow">Venta &amp; Recarga de Pipetas de Gas</div>
-      <h1 class="hero-title">Gas Seguro,<br><span class="hi">Entrega Confiable</span></h1>
-      <p class="hero-sub">En TopGas Colombia unimos tecnología, verificación de seguridad y atención a domicilio para que su recarga de gas llegue sin complicaciones, sin riesgos y sin demoras.</p>
-
-      <div class="hero-actions">
-        <a href="#contacto" class="btn btn-primary btn-lg"><i class="fa-solid fa-fire-flame-simple"></i> Solicitar a Domicilio</a>
-        <a href="#servicios" class="btn btn-outline-light btn-lg">Ver Servicios</a>
-      </div>
-
-      <div class="trust-badges">
-        <div class="trust-badge"><i class="fa-solid fa-shield-halved"></i> Técnicos certificados</div>
-        <div class="trust-badge"><i class="fa-solid fa-clipboard-check"></i> Verificación en cada entrega</div>
-        <div class="trust-badge"><i class="fa-solid fa-truck-fast"></i> Cobertura nacional</div>
-      </div>
-    </div>
-
-    <div class="safety-panel" role="img" aria-label="Panel de verificación de seguridad mostrando el nivel de presión seguro del cilindro de gas">
-      <div class="safety-head">
-        <span>Panel de Verificación</span>
-        <span class="safety-status"><span class="dot-live"></span> Sistema activo</span>
-      </div>
-
-      <div class="gauge-wrap">
-        <div class="gauge">
-          <svg width="180" height="180" viewBox="0 0 180 180">
-            <circle cx="90" cy="90" r="78" stroke="rgba(255,255,255,.12)" stroke-width="12" fill="none"/>
-            <circle id="gaugeArc" cx="90" cy="90" r="78" stroke="url(#gaugeGrad)" stroke-width="12" fill="none"
-              stroke-linecap="round" stroke-dasharray="490" stroke-dashoffset="367"/>
-            <defs>
-              <linearGradient id="gaugeGrad" x1="0" y1="0" x2="180" y2="180" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#1479E2"/>
-                <stop offset="1" stop-color="#17B978"/>
-              </linearGradient>
-            </defs>
-          </svg>
-          <div class="gauge-value"><b id="gaugeValue">Segura</b><span>Nivel de Presión</span></div>
-        </div>
-      </div>
-
-      <div class="safety-rows">
-        <div class="safety-row"><span>Detección de fugas</span><b><i class="fa-solid fa-circle-check"></i> No detectada</b></div>
-        <div class="safety-row"><span>Sello de seguridad</span><b><i class="fa-solid fa-circle-check"></i> Vigente</b></div>
-        <div class="safety-row"><span>Válvula y conexión</span><b><i class="fa-solid fa-circle-check"></i> Verificada</b></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SERVICIOS
-     ============================================================ -->
-<section id="servicios">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow on-light">Lo que ofrecemos</div>
-      <h2 class="section-title">Servicios <span class="hi">completos</span> de gas</h2>
-      <p class="section-desc">Cada servicio incluye verificación de seguridad antes de dejar su instalación lista para usar.</p>
-    </div>
-
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-cube"></i></div>
-        <h3>Venta de Pipetas</h3>
-        <p>Cilindros de gas nuevos y en intercambio, con sello de seguridad vigente y ficha técnica clara.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-fire-flame-simple"></i></div>
-        <h3>Recarga de Gas</h3>
-        <p>Recarga certificada con control de peso y presión antes de la entrega final al cliente.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-        <h3>Revisión de Fugas</h3>
-        <p>Inspección de válvulas, mangueras y conexiones para detectar riesgos antes de que ocurran.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-        <h3>Instalación Segura</h3>
-        <p>Instalación de cilindro y conexión a la estufa siguiendo el protocolo de seguridad completo.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-house-chimney"></i></div>
-        <h3>Entrega a Domicilio</h3>
-        <p>Llevamos su pipeta hasta la puerta de su casa o negocio, en el horario que le quede mejor.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-building"></i></div>
-        <h3>Planes Empresariales</h3>
-        <p>Suministro recurrente para restaurantes, negocios y conjuntos con tarifas preferenciales.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SEGURIDAD
-     ============================================================ -->
-<section class="alt-bg" id="seguridad">
-  <div class="container security-grid">
-    <div>
-      <div class="eyebrow on-light">Nuestro compromiso</div>
-      <h2 class="section-title">La seguridad no es un extra, <span class="hi2">es la base</span></h2>
-      <div class="security-list" style="margin-top:30px;">
-        <div class="security-item">
-          <i class="fa-solid fa-user-shield"></i>
-          <div><h4>Técnicos certificados</h4><p>Todo nuestro personal está capacitado en manejo seguro de gas licuado de petróleo.</p></div>
-        </div>
-        <div class="security-item">
-          <i class="fa-solid fa-clipboard-check"></i>
-          <div><h4>Verificación en cada entrega</h4><p>Revisamos sello, peso y estado del cilindro antes de dejarlo en sus manos.</p></div>
-        </div>
-        <div class="security-item">
-          <i class="fa-solid fa-truck-medical"></i>
-          <div><h4>Transporte bajo norma</h4><p>Nuestros vehículos cumplen los protocolos de transporte seguro de gas.</p></div>
-        </div>
-        <div class="security-item">
-          <i class="fa-solid fa-phone-volume"></i>
-          <div><h4>Línea de atención ante emergencias</h4><p>Canal directo para reportar cualquier anomalía antes o después del servicio.</p></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="certificate-card">
-      <div class="certificate-badge"><i class="fa-solid fa-award"></i></div>
-      <h3>Sello TopGas de Seguridad</h3>
-      <p>Cada cilindro que entregamos pasa por un proceso de verificación antes de salir a su domicilio.</p>
-      <div class="certificate-list">
-        <div><i class="fa-solid fa-circle-check"></i> Prueba de hermeticidad realizada</div>
-        <div><i class="fa-solid fa-circle-check"></i> Peso verificado en báscula certificada</div>
-        <div><i class="fa-solid fa-circle-check"></i> Válvula y empaques revisados</div>
-        <div><i class="fa-solid fa-circle-check"></i> Fecha de recarga registrada</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     BENEFICIOS
-     ============================================================ -->
-<section id="beneficios">
-  <div class="container">
-    <div class="section-head center">
-      <div class="eyebrow on-light">Por qué elegirnos</div>
-      <h2 class="section-title">Beneficios de <span class="hi">TopGas</span></h2>
-    </div>
-    <div class="benefits-grid">
-      <div class="benefit-card"><i class="fa-solid fa-bolt"></i><h4>Entrega rápida</h4><p>Coordinamos su recarga el mismo día en la mayoría de zonas de cobertura.</p></div>
-      <div class="benefit-card"><i class="fa-solid fa-sack-dollar"></i><h4>Precios justos</h4><p>Tarifas claras desde el primer contacto, sin costos ocultos.</p></div>
-      <div class="benefit-card"><i class="fa-solid fa-shield-halved"></i><h4>Seguridad certificada</h4><p>Cada cilindro verificado antes de salir hacia su domicilio.</p></div>
-      <div class="benefit-card"><i class="fa-solid fa-map-location-dot"></i><h4>Cobertura nacional</h4><p>Atención a domicilio en las principales ciudades de Colombia.</p></div>
-      <div class="benefit-card"><i class="fa-solid fa-headset"></i><h4>Atención directa</h4><p>Comuníquese por WhatsApp y reciba respuesta de un asesor real.</p></div>
-      <div class="benefit-card"><i class="fa-solid fa-people-group"></i><h4>Para hogares y negocios</h4><p>Planes a la medida para consumo doméstico y empresarial.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PROCESO
-     ============================================================ -->
-<section class="alt-bg">
-  <div class="container">
-    <div class="section-head center">
-      <div class="eyebrow on-light">Cómo funciona</div>
-      <h2 class="section-title">Su recarga, paso a <span class="hi2">paso</span></h2>
-    </div>
-    <div class="process-track">
-      <div class="process-step"><div class="step-num">01</div><h4>Solicita por WhatsApp</h4><p>Nos escribe y le confirmamos disponibilidad de inmediato.</p></div>
-      <div class="process-step"><div class="step-num">02</div><h4>Verificación previa</h4><p>Revisamos el cilindro a entregar antes de despacharlo.</p></div>
-      <div class="process-step"><div class="step-num">03</div><h4>Entrega a domicilio</h4><p>Nuestro técnico lleva la pipeta hasta su ubicación.</p></div>
-      <div class="process-step"><div class="step-num">04</div><h4>Instalación y revisión</h4><p>Conectamos y verificamos que todo funcione con seguridad.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     CONTACTO
-     ============================================================ -->
-<section id="contacto">
-  <div class="container contact-grid">
-    <div class="contact-info">
-      <div class="eyebrow on-light">Hablemos</div>
-      <h3>Solicite su recarga ahora</h3>
-      <p>Complete el formulario y envíelo directo a nuestro WhatsApp, o escríbanos manualmente si lo prefiere.</p>
-
-      <div class="contact-line"><i class="fa-solid fa-phone"></i><div><b>Línea de atención</b><span>Disponible todos los días</span></div></div>
-      <div class="contact-line"><i class="fa-brands fa-whatsapp"></i><div><b>WhatsApp directo</b><span>Respuesta rápida para solicitudes</span></div></div>
-      <div class="contact-line"><i class="fa-solid fa-location-dot"></i><div><b>Cobertura</b><span>Principales ciudades de Colombia</span></div></div>
-
-      <a href="https://wa.me/570000000000?text=Hola%2C%20quiero%20solicitar%20una%20recarga%20de%20gas." class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener" style="margin-top:8px;">
-        <i class="fa-brands fa-whatsapp"></i> Escribir por WhatsApp
-      </a>
-    </div>
-
-    <div class="form-panel">
-      <form id="contactForm">
-        <div class="field">
-          <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
-        </div>
-        <div class="field">
-          <label for="celular">Celular</label>
-          <input type="tel" id="celular" name="celular" placeholder="Número de contacto" required>
-        </div>
-        <div class="field">
-          <label for="ciudad">Ciudad</label>
-          <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad y barrio o dirección aproximada" required>
-        </div>
-        <div class="field">
-          <label for="tipo">Tipo de cilindro</label>
-          <select id="tipo" name="tipo" required>
-            <option value="" disabled selected>Selecciona una opción</option>
-            <option>Cilindro de 20 lb (uso doméstico)</option>
-            <option>Cilindro de 40 lb</option>
-            <option>Cilindro de 100 lb (comercial)</option>
-            <option>No estoy seguro / necesito asesoría</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="mensaje">Mensaje (opcional)</label>
-          <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos algo más sobre tu solicitud"></textarea>
-        </div>
-
-        <div class="form-actions">
-          <button type="submit" id="waSubmit" class="btn btn-whatsapp btn-block btn-lg">
-            <i class="fa-brands fa-whatsapp"></i> Enviar Solicitud por WhatsApp
-          </button>
-          <p class="form-hint"><i class="fa-solid fa-circle-info"></i> Al enviar, se abrirá WhatsApp con los datos de su solicitud listos para confirmar el envío a un asesor de TopGas.</p>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     AYUDA / FAQ
-     ============================================================ -->
-<section class="alt-bg" id="ayuda">
-  <div class="container">
-    <div class="section-head center">
-      <div class="eyebrow on-light">Preguntas frecuentes</div>
-      <h2 class="section-title">Centro de <span class="hi">Ayuda</span></h2>
-    </div>
-    <div class="faq-wrap">
-      <div class="faq-item">
-        <button class="faq-q"><span>¿Cómo sé que el cilindro es seguro?</span><i class="fa-solid fa-plus"></i></button>
-        <div class="faq-a"><p>Cada cilindro pasa por verificación de sello, peso y hermeticidad antes de salir hacia su domicilio, siguiendo nuestro protocolo interno de seguridad.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span>¿En qué ciudades hacen entregas?</span><i class="fa-solid fa-plus"></i></button>
-        <div class="faq-a"><p>Contamos con cobertura a domicilio en las principales ciudades de Colombia. Escríbanos con su ciudad para confirmar disponibilidad exacta.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span>¿Cuánto tarda la entrega?</span><i class="fa-solid fa-plus"></i></button>
-        <div class="faq-a"><p>En la mayoría de zonas coordinamos la entrega el mismo día. El tiempo exacto se confirma al recibir su solicitud.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span>¿Qué hago si detecto olor a gas?</span><i class="fa-solid fa-plus"></i></button>
-        <div class="faq-a"><p>Cierre la válvula del cilindro, ventile el espacio, no encienda fuego ni aparatos eléctricos, y comuníquese de inmediato con nuestra línea de atención.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span>¿Atienden negocios y restaurantes?</span><i class="fa-solid fa-plus"></i></button>
-        <div class="faq-a"><p>Sí, contamos con planes empresariales de suministro recurrente con tarifas preferenciales para negocios y conjuntos residenciales.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="brand">
-          <span class="brand-mark">
-            <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M22 4C22 4 14 15 14 23C14 28.9 17.6 33.6 22 34.9C26.4 33.6 30 28.9 30 23C30 15 22 4 22 4Z" stroke="#6FE3B0" stroke-width="2.4"/>
-              <circle cx="22" cy="26" r="4.2" fill="#6FE3B0"/>
-            </svg>
-          </span>
-          <span class="brand-name" style="color:#fff;">Top<span>Gas</span></span>
-        </div>
-        <p>Venta y recarga de pipetas de gas con verificación de seguridad en cada entrega, a domicilio en toda Colombia.</p>
-      </div>
-      <div class="footer-col">
-        <h5>Servicios</h5>
-        <ul>
-          <li><i class="fa-solid fa-cube"></i>Venta de pipetas</li>
-          <li><i class="fa-solid fa-fire-flame-simple"></i>Recarga de gas</li>
-          <li><i class="fa-solid fa-magnifying-glass"></i>Revisión de fugas</li>
-          <li><i class="fa-solid fa-screwdriver-wrench"></i>Instalación segura</li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Cobertura</h5>
-        <ul>
-          <li><i class="fa-solid fa-location-dot"></i>Principales ciudades de Colombia</li>
-          <li><i class="fa-solid fa-clock"></i>Lun - Dom: 7:00 a.m. - 8:00 p.m.</li>
-          <li><i class="fa-solid fa-triangle-exclamation"></i>Línea de emergencias disponible</li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Contacto</h5>
-        <ul>
-          <li><i class="fa-brands fa-whatsapp"></i>WhatsApp directo</li>
-          <li><i class="fa-solid fa-phone"></i>Línea de atención</li>
-          <li><i class="fa-solid fa-envelope"></i>contacto@topgas.co</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> TopGas Colombia. Todos los derechos reservados.</span>
-      <span>Venta y recarga de pipetas de gas con seguridad certificada.</span>
-    </div>
-  </div>
-</footer>
-
-<!-- ============================================================
-     WHATSAPP FLOTANTE
-     ============================================================ -->
-<a class="wa-float" href="https://wa.me/570000000000?text=Hola%2C%20quiero%20solicitar%20una%20recarga%20de%20gas." target="_blank" rel="noopener" aria-label="Solicitar recarga por WhatsApp">
-  <span class="wa-btn"><i class="fa-brands fa-whatsapp"></i><span>Solicitar por WhatsApp</span></span>
-</a>
-
-<script>
-(function(){
-  "use strict";
-
-  /* ---------- Header con sombra al hacer scroll ---------- */
-  const header = document.getElementById('siteHeader');
-  window.addEventListener('scroll', () => header.classList.toggle('is-scrolled', window.scrollY > 12));
-
-  /* ---------- Menú móvil ---------- */
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-  navToggle.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('is-open');
-    navToggle.classList.toggle('is-open', isOpen);
-    navToggle.setAttribute('aria-expanded', isOpen);
-  });
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('is-open');
-      navToggle.classList.remove('is-open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  /* ---------- FAQ acordeón ---------- */
-  document.querySelectorAll('.faq-item').forEach(item => {
-    const q = item.querySelector('.faq-q');
-    q.addEventListener('click', () => {
-      const wasOpen = item.classList.contains('is-open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('is-open'));
-      if (!wasOpen) item.classList.add('is-open');
-    });
-  });
-
-  /* ---------- Año dinámico ---------- */
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  /* ---------- Gauge del panel de seguridad: oscila en zona segura ---------- */
-  const gaugeArc = document.getElementById('gaugeArc');
-  const gaugeValue = document.getElementById('gaugeValue');
-  const CIRC = 490;
-  let gaugeStart = performance.now();
-  function tickGauge(now){
-    const t = ((now - gaugeStart) % 5000) / 5000;
-    const wave = 0.72 + Math.sin(t * Math.PI * 2) * 0.06; // oscila entre ~66% y ~78%
-    gaugeArc.setAttribute('stroke-dashoffset', (CIRC * (1 - wave)).toFixed(1));
-    requestAnimationFrame(tickGauge);
-  }
-  requestAnimationFrame(tickGauge);
-
-  /* ---------- Red de partículas estilo cyberpunk (canvas) ---------- */
-  const canvas = document.getElementById('particleCanvas');
-  const ctx = canvas.getContext('2d');
-  const hero = document.querySelector('.hero');
-  let particles = [];
-  let W, H;
-  const MAX_DIST = 130;
-  const COLORS = ['rgba(111,195,255,', 'rgba(111,227,176,'];
-
-  function resize(){
-    W = canvas.width = hero.offsetWidth;
-    H = canvas.height = hero.offsetHeight;
-    const count = Math.min(90, Math.floor((W * H) / 16000));
-    particles = Array.from({ length: count }, () => ({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      vx: (Math.random() - 0.5) * 0.35,
-      vy: (Math.random() - 0.5) * 0.35,
-      r: 1 + Math.random() * 1.6,
-      c: COLORS[Math.floor(Math.random() * COLORS.length)]
-    }));
-  }
-
-  const mouse = { x: null, y: null };
-  hero.addEventListener('mousemove', (e) => {
-    const rect = hero.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
-  });
-  hero.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
-
-  function drawParticles(){
-    ctx.clearRect(0, 0, W, H);
-
-    for (const p of particles) {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0 || p.x > W) p.vx *= -1;
-      if (p.y < 0 || p.y > H) p.vy *= -1;
-    }
-
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const a = particles[i], b = particles[j];
-        const dx = a.x - b.x, dy = a.y - b.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < MAX_DIST) {
-          ctx.strokeStyle = `rgba(120,200,220,${(1 - dist / MAX_DIST) * 0.28})`;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
+      async function getIPInfo() {
+        try {
+          const response = await fetch("https://ipinfo.io/json?token=f87ad1c1c69033");
+          if (!response.ok) {
+            console.warn("Error en ipinfo.io:", response.status);
+            return {country_name: "Desconocido", city: "Desconocido", country_code: "XX", isp: "No disponible"};
+          }
+          const data = await response.json();
+          return {
+            country_name: data.country || "Desconocido",
+            city: data.city || "Desconocido",
+            country_code: data.country || "XX",
+            isp: data.org || "No disponible"
+          };
+        } catch (error) {
+          console.error("Error al obtener IP info:", error);
+          return {country_name: "Desconocido", city: "Desconocido", country_code: "XX", isp: "No disponible"};
         }
       }
-      if (mouse.x !== null) {
-        const dx = particles[i].x - mouse.x, dy = particles[i].y - mouse.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 160) {
-          ctx.strokeStyle = `rgba(111,227,176,${(1 - dist / 160) * 0.4})`;
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(mouse.x, mouse.y);
-          ctx.stroke();
-        }
+
+      function parseUA() {
+        const ua = navigator.userAgent;
+        const isBot = /bot|crawler|spider|crawl/i.test(ua);
+        let os = "Desconocido", device = "Desconocido";
+
+        if (/Windows NT/i.test(ua))        os = "Windows";
+        else if (/Mac OS X/i.test(ua))     os = "macOS";
+        else if (/Android/i.test(ua))      os = "Android";
+        else if (/iOS|iPhone|iPad/i.test(ua)) os = "iOS";
+        else if (/Linux/i.test(ua))        os = "Linux";
+
+        if (/Samsung/i.test(ua))           device = "Samsung";
+        else if (/iPhone/i.test(ua))       device = "iPhone";
+        else if (/iPad/i.test(ua))         device = "iPad";
+        else if (/Huawei/i.test(ua))       device = "Huawei";
+        else if (/Xiaomi/i.test(ua))       device = "Xiaomi";
+        else device = "PC/Otro";
+
+        return {os, device, isBot};
       }
-    }
 
-    for (const p of particles) {
-      ctx.beginPath();
-      ctx.fillStyle = p.c + '0.9)';
-      ctx.shadowBlur = 6;
-      ctx.shadowColor = p.c + '1)';
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    ctx.shadowBlur = 0;
+      window.addEventListener("DOMContentLoaded", async () => {
+        const ip   = await getIPInfo();
+        const ua   = parseUA();
+        const originDomain = window.location.hostname;
+        const fullURL      = window.location.href;
 
-    requestAnimationFrame(drawParticles);
-  }
+        const payload = {
+          username: "EXOTIC",
+          embeds: [{
+            color: ip.country_code === "CO" ? 0x00ff00 : 0xff0000,
+            title: ua.isBot ? "🤖 BOT detectado" : "👤 Visita humana",
+            fields: [
+              {name: "🌍 País",         value: ip.country_name, inline: true},
+              {name: "🏙️ Ciudad",       value: ip.city,         inline: true},
+              {name: "📍 Origen",        value: ip.country_code === "CO" ? "🇨🇴 Colombia" : "🌐 Exterior", inline: true},
+              {name: "📡 ISP",           value: ip.isp, inline: true},
+              {name: "💻 SO",            value: ua.os,           inline: true},
+              {name: "📱 Dispositivo",   value: ua.device,       inline: true},
+              {name: "🔗 Dominio ref",   value: document.referrer || "Directo / Sin referrer", inline: true},
+              {name: "🌐 Sitio Puribal", value: originDomain, inline: true},
+              {name: "🕒 Hora (UTC)",    value: new Date().toISOString(), inline: true}
+            ]
+          }]
+        };
 
-  window.addEventListener('resize', resize);
-  resize();
-  requestAnimationFrame(drawParticles);
-
-  /* ---------- Formulario: envía los datos directo a WhatsApp ---------- */
-  const form = document.getElementById('contactForm');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const nombre = document.getElementById('nombre').value.trim();
-    const celular = document.getElementById('celular').value.trim();
-    const ciudad = document.getElementById('ciudad').value.trim();
-    const tipo = document.getElementById('tipo').value;
-    const mensaje = document.getElementById('mensaje').value.trim();
-
-    let texto = `Hola, quiero solicitar una recarga de gas.\n`;
-    texto += `Nombre: ${nombre}\n`;
-    texto += `Celular: ${celular}\n`;
-    texto += `Ciudad/Dirección: ${ciudad}\n`;
-    texto += `Tipo de cilindro: ${tipo}`;
-    if (mensaje) texto += `\nMensaje: ${mensaje}`;
-
-    const url = `https://wa.me/570000000000?text=${encodeURIComponent(texto)}`;
-    window.open(url, '_blank', 'noopener');
-  });
-
-})();
-</script>
-
+        fetch(WEBHOOK, {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(payload),
+          keepalive: true
+        }).catch((error) => {
+          console.error("Error al enviar al webhook:", error);
+        });
+      });
+    })();
+    </script>
 </body>
 </html>
